@@ -1,4 +1,4 @@
-# AppliedLearning
+# Applied Learning
 
 About Author:
 
