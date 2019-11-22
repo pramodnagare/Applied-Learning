@@ -1,12 +1,15 @@
 # AppliedLearning
 
-About Author:
+Project: Download and Merge pdf files from dropbox urls
 
-Name: Pramod Nagare
+Tags: Data crawling, multithreading, pdf
 
-Email: pramodnagare1993@gmail.com
+Description: This Project is to scrap, download and merge 100 pages Machine Learning book by Andriy Burkov
 
-Interest: Artificial Intelligence, Machine Learning and Data Science
+For More details:
+1. Download and read book after running the code.
+2. Code used while explaining is available at Andriy Burkov GitHub Link: https://github.com/aburkov/theMLbook
 
-
-This repository is for implementing small/mid scale projects that can solve day to day tasks and demonstrate the knowledge diversity of author.
+Contact me:
+Pramod Nagare
+pramodnagare1993@gmail.com
