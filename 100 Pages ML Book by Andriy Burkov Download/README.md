@@ -1,18 +1,16 @@
-## Project: Download and Merge pdf files from dropbox urls
+**Aim**: Scrape, Download and Merge files from dropbox to build a ML book
 
-### Tags: 
+***Tags: Data crawling, multithreading, pdf, python**
 
-Data crawling, multithreading, pdf
-
-### Description: 
+**Description:** 
 
 This Project is to scrap, download and merge 100 pages Machine Learning book by Andriy Burkov
 
-For More details:
-1. Download and read book after running the code.
-2. Code used while explaining is available at Andriy Burkov GitHub Link: https://github.com/aburkov/theMLbook
+For More details of the book:
+1. Run the codd and get the book
+2. Python code used in book is available at Andriy Burkov GitHub Link: https://github.com/aburkov/theMLbook
 
-### Contact me:
+**Contact me:**
 
 Pramod Nagare
 
