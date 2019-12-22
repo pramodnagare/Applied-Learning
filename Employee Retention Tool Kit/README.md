@@ -1,6 +1,6 @@
 **Aim:** Employee Retention Tool Kit
 
-**Description:** This project developer machine learning models that will helps human resource team to predict whether given employee will leave the company in coming days. If yes, then HR Team can take related measure to prevent the situation as per requirement.
+**Description:** This project is aim to develope machine learning models that can help human resource team to predict whether or not given employee will leave the company in coming days. If yes, then HR Team can take relative measures to prevent the situation as per the requirement.
 
 **Tags:** **classification**, **imbalanced-dataset**, **scaling**, **sampling**, **tableau-dashboards**
 
