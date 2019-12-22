@@ -9,6 +9,5 @@
 **Python Implementation:** ToolKit.ipynd
 
 **Model Analysis:** 
-![Model Analysis 1]("https://github.com/pramodnagare/AppliedLearning/blob/master/Employee%20Retention%20Tool%20Kit/Model%20Analysis/Model%20Analysis%201.png")
 
-![Model Analysis 2]("Model Analysis/Model Analysis 2.png")
+<img src= Model%20Analysis/Model%20Analysis%202.png>
