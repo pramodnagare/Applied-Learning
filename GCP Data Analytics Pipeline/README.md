@@ -9,3 +9,5 @@
 **Dataset:** Avaialable on https://registry.opendata.aws/amazon-reviews/
 
 **Python Implementation:** Big Data Analytics Piepline.ipynb
+
+**Data Analytics:** We will analyse the Amazone Customer Review dataset in other project
