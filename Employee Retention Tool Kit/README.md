@@ -21,6 +21,10 @@
 3. MLP model is sensitive to feature normalization, it performed better with scaled features
 4. GaussianNB is the fastest of all models, however, it has the worst accuracy
 
+### Model Performance Analysis with fearture selection:
+
+From EDA, we observed that department of an employee is less significant for employee leaving or not. So, to back our observation, we can dropped department features from our dataset and developed models.
+
 [Interactive Dashboard Avaiable here](https://public.tableau.com/profile/pramod.nagare#!/vizhome/EmployeeRetentionToolKitModelPerformanceAnalysis2/ModelAnalysis)
 
 <img src= Model%20Analysis/Model%20Analysis%202.png>
