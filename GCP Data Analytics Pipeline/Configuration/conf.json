@@ -1,0 +1,13 @@
+{
+	"cred_file": "./Configuration/GCP-BigData-Analytics-Pipeline-d083f8ff9b38.json",
+	"project_id": "gcp-bigdata-analytics-pipeline",
+	"project_name": "GCP-BigData-Analytics-Pipeline",
+	"topic_name": "gcp-topic",
+	"bucket_name": "aws-review-data",
+	"subscription_name": "gcp-subscription",
+	"dataset_name": "AWS_Product_Review",
+	"table_name": "Reviews",
+	"schema": "./Configuration/Reviews.json",
+	"job_name": "gcp_dataFlow"
+	
+}
