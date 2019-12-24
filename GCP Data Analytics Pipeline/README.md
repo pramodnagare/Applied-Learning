@@ -1,12 +1,9 @@
-# Applied Learning
+**Aim:** GCP Data Analytics Pipeline
 
-About Author:
+**Description:** This project is aim to develope GCP Data analytics pipeline that will cover batch-processing and real-time data streaming for Amazon Customer Review Dataset. Once Data is caputred, it will be analyse through any analytical tool such as GCP Data Explorer, Tableau, MS Power BI and so on.
 
-Name: Pramod Nagare
+**Tags:** **analytics-pipeline**, **pub-sub**, **big-query**, **data-flow**, **tableau-dashboards**
 
-Email: pramodnagare1993@gmail.com
+**Dataset:** Avaialable on https://registry.opendata.aws/amazon-reviews/
 
-Interest: Artificial Intelligence, Machine Learning and Data Science
-
-
-This repository is for implementing small/mid scale projects that can solve day to day tasks and demonstrate the knowledge diversity of author.
+**Python Implementation:** Big Data Analytics Piepline.ipynb
