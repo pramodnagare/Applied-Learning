@@ -13,9 +13,26 @@ import spacy
 import datetime
 import wikipedia
 import time
+import json
 from threading import Thread
 
-newsapi = NewsApiClient(api_key="")
+def load_configuration(file):
+    try:
+        conf = open(file).read()
+        conf = json.loads(conf)
+        values = list(conf.values())
+        if None in values:
+            print("Please confirm all fields are mentioned in the credential files! Try again!")
+        return conf
+    except:
+        print("Errro Occurred! Please check if file is available!")
+
+conf = load_configuration("./configuration.json")
+
+api_key = conf["news-api-key"]
+app_trigger_name = conf["app-trigger-name"].lower()
+
+newsapi = NewsApiClient(api_key=api_key)
 
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
@@ -32,7 +49,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("Hi There!. Please tell me how may I help you")
+    speak("Please tell me how may I help you")
 
 def speak(audio):
     engine = pyttsx3.init('sapi5')
@@ -136,7 +153,7 @@ def tryNews(query):
             for item in top_words:
                 context += item[0] +" "
             
-            return context, top_headlines['articles'][0]
+            return context, top_headlines['articles'][0:2]
     
     return None, None
 
@@ -164,7 +181,7 @@ def getBestResult(possible_answers):
     status = False
     for item in process.extract(query, possible_answers, limit=1, scorer=fuzz.token_set_ratio):
         if item[1] > 75:
-            print(item)
+            print(str(item[0].encode('utf-8', 'ignore')))
             speak("Here is some Google result...")
             speak(item[0])
             status = True
@@ -234,19 +251,26 @@ def processQuery(query):
 
         else:
             context, top_headlines =  tryNews(clean_query)
-            speak("I got realated news!")
-            speak(removePunctuation(top_headlines['content']))
+            if top_headlines:
+                for news in top_headlines:
+                    if top_headlines['content']:
+                        speak("I got realated news!")
+                        speak(removePunctuation(top_headlines['content']))
+                        return None
+            
+            speak("I am sorry! I do not understand")
 
 if __name__ == "__main__":
+    wishMe()
     while True:
         query = takeCommand()
 
-        if query and "alex stop" in query.lower():
+        if query and "{} stop".format(app_trigger_name) in query.lower():
             speak("OK Bye!")
             exit()
         
         elif query:
             query = str(query).lower()
-            if query.startswith("alex"):
-                query = query.replace("alex", "")
+            if query.startswith(app_trigger_name):
+                query = query.replace(app_trigger_name, "")
                 processQuery(query)
