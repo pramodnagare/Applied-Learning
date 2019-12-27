@@ -1,9 +1,9 @@
-# Applied Learning
+### **Aim:** Alex - The Voice Assistant
 
-**About Author:**
+**Description:** This project is aim to develope voice assistant for day-to-day queries. The motivation behind this project that Alexa, Siri, Google voice assistant projects are still in continuouse improvement phase, there are some obviouse querries that could be improved easily using some simple natutal laguagae processing.
 
-**Name:** Pramod Nagare
+**Tags:** **voice-assistant**, **nlp**, **web-scraping**, **speech-to-text-api**, **text-to-speech-api**
 
-**Email:** pramodnagare1993@gmail.com
+**Python Implementation:** app.py
 
-This repository is for implementing small-mid scale projects that can solve day to day tasks and demonstrate the knowledge diversity of author.
+**Replication Setup:**
