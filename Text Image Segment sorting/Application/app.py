@@ -3,15 +3,11 @@ import time
 import shutil
 import glob
 import json
-import csv
 import cv2
 import pytesseract
-import pandas as pd
 import concurrent.futures
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
-
-pytesseract.pytesseract.tesseract_cmd = r'../Tesseract-OCR-Installables/tesseract.exe'
 
 class TextImageSorting:
 
@@ -31,6 +27,10 @@ class TextImageSorting:
                 self.image_file_type = conf['image_file_type']
                 self.segment_text_file_name = conf['segment_text_file_name']
                 self.back_list_characters = conf['back_list_characters']
+                self.text_match_confidence = conf['text_match_confidence']
+                self.tesseract_ocr_exe_path = conf['tesseract_ocr_exe_path']
+
+                pytesseract.pytesseract.tesseract_cmd = self.tesseract_ocr_exe_path
 
                 print("Configuration file loaded successfully!")
         except:
@@ -111,6 +111,7 @@ class TextImageSorting:
         return text.lower()
     
     def sortImages(self):
+
         try:
             start = time.time()
             segment_text = open(os.path.join(self.output_dir, self.segment_text_file_name)).read()
@@ -123,10 +124,11 @@ class TextImageSorting:
             images_processed = 0
             for item in segment_text.keys():
                 text = self.blackListText(segment_text[item]['text'])
+                text = str(text.encode('utf-8', 'ignore'))
                 key = process.extractBests(text, temp_class_file, scorer=fuzz.token_sort_ratio, limit=1)
                 if key:
                     keyword, score, index = key[0]
-                    if score > 85:
+                    if score >= self.text_match_confidence:
                         source = os.path.join(segment_text[item]['path'], segment_text[item]['image'])
                         destination = os.path.join(self.output_dir, str('%03d' %int(index)))
                         shutil.copy(source, destination)
@@ -135,3 +137,16 @@ class TextImageSorting:
             print("Time for sorting {} images is {}".format(images_processed, end-start))
         except:
             print("Error while sorting images")
+
+    def renameClassImages(self):
+
+        try:
+            for key in self.class_file.keys():
+                images = glob.glob(os.path.join(self.output_dir, str('%03d' %int(key)), "*" + self.image_file_type))
+                for i in range(len(images)):
+                    path, image = os.path.split(images[i])
+                    new_file_name = os.path.join(path, str('%03d' %int(key)) + "-" + str(i) + ".png")
+                    os.rename(images[i], new_file_name)
+        
+        except:
+            print("Error while renaming classified images")

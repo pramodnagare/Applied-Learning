@@ -6,8 +6,9 @@ if __name__ == "__main__":
     conf_file = r"configuration/conf.json"
     a = TextImageSorting(conf_file)
     a.extract_text_images() # for parallel file extraction
-    # a.extract_text_images_seq() # for sequential file extraction
+    # # a.extract_text_images_seq() # for sequential file extraction
     a.setupOutputDir()
     a.sortImages()
+    a.renameClassImages()
     end = time.time()
     print("Total time for execution: {} secs!".format(end-start))
