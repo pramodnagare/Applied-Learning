@@ -137,3 +137,5 @@ class NewsSentimentAnalysis():
             data['news_data'] = news
             data['url'] = headline['url']
             return data
+
+    
