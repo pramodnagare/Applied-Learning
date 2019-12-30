@@ -6,6 +6,7 @@ import tweepy
 from bs4 import BeautifulSoup
 import requests as req
 from textblob import TextBlob
+from difflib import SequenceMatcher
 from datetime import date, timedelta
 
 class NewsSentimentAnalysis():
@@ -95,7 +96,44 @@ class NewsSentimentAnalysis():
 
     def pipeline(self, query):
         clean_query = self.processUserQuery(query)
-        top_headline = self.getTopHeadlines(clean_query)
-        return top_headline
+        top_headlines = self.getTopHeadlines(clean_query)
+        data = []
+        for headline in top_headlines['articles'][:10]:
+            data_h = self.parseHeadline(headline)
+            clean_title = self.getTwiterQuery(data_h['title'])
+            data_h['tweets'] = []
+            for tweet in self.getTweets(clean_title):
+                tweet_p = self.parseTweet(tweet)
+                data_h['tweets'].append(tweet_p)
+            data.append(data_h)
+        return data
 
-    
+    def parseTweet(self, tweet):
+        data = {}
+        data['text'] = tweet.text
+        data['location'] = tweet.user.location
+        data['friends_count'] = tweet.user.friends_count
+        data['favourites_count'] = tweet.user.favourites_count
+        data['urls'] = [ item['expanded_url'] for item in tweet.entities['urls'] ]
+        return data
+
+    def parseHeadline(self, headline):
+        if not (set({'title', 'content'}) - set(headline.keys())):
+            content = headline['content']
+            url = headline['url']
+            temp = self.scrapeWebPage(url)
+            if content and temp:
+                if str(content).endswith("chars]"):
+                    match = SequenceMatcher(None, content, temp).find_longest_match(0, len(content), 0, len(temp))
+                    start_char = match[1]
+                    end_char = int(headline['content'][263:-7]) + 260
+                    news = temp[start_char:end_char]
+                else:
+                    news = headline['content']
+            else:
+                news = headline['title']
+            data= {}
+            data['title'] = headline['title']
+            data['news_data'] = news
+            data['url'] = headline['url']
+            return data
