@@ -10,36 +10,19 @@ import speech_recognition as sr
 from spacy.lang.en import English
 import string
 import spacy
-import datetime
+from datetime import date, timedelta, datetime
 import wikipedia
 import time
-import json
 from threading import Thread
 
-def load_configuration(file):
-    try:
-        conf = open(file).read()
-        conf = json.loads(conf)
-        values = list(conf.values())
-        if None in values:
-            print("Please confirm all fields are mentioned in the credential files! Try again!")
-        return conf
-    except:
-        print("Errro Occurred! Please check if file is available!")
-
-conf = load_configuration("./configuration.json")
-
-api_key = conf["news-api-key"]
-app_trigger_name = conf["app-trigger-name"].lower()
-
-newsapi = NewsApiClient(api_key=api_key)
+newsapi = NewsApiClient(api_key="")
 
 nlp = spacy.load('en_core_web_sm', disable=['parser', 'ner'])
 
 black_list_characters = '!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
 
 def wishMe():
-    hour = int(datetime.datetime.now().hour)
+    hour = int(datetime.now().hour)
     if hour>=0 and hour<12:
         speak("Good Morning!")
 
@@ -49,7 +32,7 @@ def wishMe():
     else:
         speak("Good Evening!")  
 
-    speak("Please tell me how may I help you")
+    speak("Hi There!. Please tell me how may I help you")
 
 def speak(audio):
     engine = pyttsx3.init('sapi5')
@@ -139,7 +122,7 @@ def tryWiki(query):
 
 def tryNews(query):
     if query and query != "":
-        top_headlines = newsapi.get_everything(q=query, language='en', from_param='2019-20-12', to='2019-25-12', sort_by='relevancy')
+        top_headlines = newsapi.get_everything(q=query, language='en', from_param=(date.today()- timedelta(days=7)), sort_by='relevancy')
 
         if len(top_headlines['articles']) >= 2:
             total_content = ""
@@ -153,7 +136,7 @@ def tryNews(query):
             for item in top_words:
                 context += item[0] +" "
             
-            return context, top_headlines['articles'][0:2]
+            return context, top_headlines['articles'][0]
     
     return None, None
 
@@ -181,7 +164,7 @@ def getBestResult(possible_answers):
     status = False
     for item in process.extract(query, possible_answers, limit=1, scorer=fuzz.token_set_ratio):
         if item[1] > 75:
-            print(str(item[0].encode('utf-8', 'ignore')))
+            print(item)
             speak("Here is some Google result...")
             speak(item[0])
             status = True
@@ -251,26 +234,19 @@ def processQuery(query):
 
         else:
             context, top_headlines =  tryNews(clean_query)
-            if top_headlines:
-                for news in top_headlines:
-                    if top_headlines['content']:
-                        speak("I got realated news!")
-                        speak(removePunctuation(top_headlines['content']))
-                        return None
-            
-            speak("I am sorry! I do not understand")
+            speak("I got realated news!")
+            speak(removePunctuation(top_headlines['content']))
 
 if __name__ == "__main__":
-    wishMe()
     while True:
         query = takeCommand()
 
-        if query and "{} stop".format(app_trigger_name) in query.lower():
+        if query and "alex stop" in query.lower():
             speak("OK Bye!")
             exit()
         
         elif query:
             query = str(query).lower()
-            if query.startswith(app_trigger_name):
-                query = query.replace(app_trigger_name, "")
+            if query.startswith("alex"):
+                query = query.replace("alex", "")
                 processQuery(query)
