@@ -1,6 +1,10 @@
+Make a note that you need to start every query to voice assistant by referring to it's trigger name.
+
+Example Alex What is CAA?
+
 1. What is CAA?
 2. What is the average salary of a data scientist in boston
 3. Is there any job opening in Apple?
 4. Why indians are protesting?
-5. What us average salary of software engineer in India
+5. What is average salary of software engineer in India
 6. Where is Taj Mahal
