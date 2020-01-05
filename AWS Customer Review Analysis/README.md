@@ -85,7 +85,7 @@ AWS Customer Review Analysis.ipynb
 
 ## Analytics:
 
-** Let's perform some analytics on Amazon Customer Reviews with GCP Data Studio
+**Let's perform some analytics on Amazon Customer Reviews with GCP Data Studio**
 
 [Interactive Dashboard Avaiable here](https://datastudio.google.com/embed/reporting/ac4f50d1-f071-4045-a23b-feafa9a80553/page/U6VAB)
 
@@ -101,3 +101,5 @@ AWS Customer Review Analysis.ipynb
 
 **Drilling and Filtering on 2009 Year and Verified purchase**
 <img src="images/20.png">
+
+**NOTE: We can improve the query performance using the BI engine service provided by GCP for big query analytics which will be running the complete query execution in memory for high throughput. It is on demand and recommended for big data services 
