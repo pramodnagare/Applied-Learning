@@ -2,7 +2,7 @@
 Amazon Customer Reviews Analytics
 
 ### Description:
-This project aimed to develope a data analytics dashboards for Amazon Customer Review Dataset. This is an extension to the project GCP Data Analytics Piepline. It considers the data is avaiable on GCP big-query for instance and then can be queried and visualize using GCP big-query and data explorer. We can connect big query database to other analytical tools such as Tableau, Power BI, Microstrategy, Excel, Looker and so on.
+This project aimed to develope a data analytics dashboards for Amazon Customer Review Dataset. This is an extension to the project GCP Data Analytics Piepline. It considers the data is avaiable on GCP big-query for instance and then can be queried and visualize using GCP big-query and data studio. We can connect big query database to other analytical tools such as Tableau, Power BI, Microstrategy, Excel, Looker and so on.
 
 
 ### Tags: 
@@ -81,3 +81,16 @@ AWS Customer Review Analysis.ipynb
 
 <img src="images/14.png">
 
+
+
+## Analytics:
+
+** Let's perform some analytics on Amazon Customer Reviews with GCP Data Studio
+
+[Interactive Dashboard Avaiable here] (https://datastudio.google.com/embed/reporting/ac4f50d1-f071-4045-a23b-feafa9a80553/page/U6VAB)
+
+<img src="images/18.png">
+
+<img src="images/19.png">
+
+<img src="images/20.png">
