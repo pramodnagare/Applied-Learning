@@ -21,8 +21,6 @@ It is available in Data folder, you can complete dataset from the link mentioned
 For querying and analytics is to load small data an build and test query against that. Once query and dashboards are ready then load the complete data to big-query or change the data source for production database and execute the queries. This will save time and money for the enterprise.**
 
 
-## Data Analytics:
-
 ## Uploading Data from Local Machine to GCP Big Query:
 **Follow the AWS Customer Review Analysis.ipynb file to setup and upload data to GCP big query database**
 
