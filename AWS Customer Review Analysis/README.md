@@ -23,9 +23,11 @@ AWS Customer Review Analysis.ipynb
 
 ## Quering GCP Big-Query:
 
-### 1. Login to GCP Console https://console.cloud.google.com and Navigate to Big Query service
-### 2. Select the Project ID and Dataset for the Amazon Customer Reviews
-### 3. Explore the Reviews table and related schema which is auto detected while uploading data
+**1. Login to GCP Console https://console.cloud.google.com and Navigate to Big Query service**
+
+**2. Select the Project ID and Dataset for the Amazon Customer Reviews**
+
+**3. Explore the Reviews table and related schema which is auto detected while uploading data**
 
 <img src="images/1.png">
 
@@ -55,11 +57,11 @@ AWS Customer Review Analysis.ipynb
 
 <img src="images/6.png">
 
-**NOTE: You can see the JSON result on the console **
+**NOTE: You can see the JSON result on the console**
 
 <img src="images/7.png">
 
-**NOTE: To see the Job Information on the console **
+**NOTE: To see the Job Information on the console**
 
 <img src="images/8.png">
 
@@ -67,7 +69,7 @@ AWS Customer Review Analysis.ipynb
 
 ### 8. Query top 5 product for each category with average star rating is greater than 4.5 and number of review is graeter than 10
 
-**NOTE: You can see the JSON result on the console **
+**NOTE: You can see the JSON result on the console**
 
 <img src="images/13.png">
 
@@ -75,7 +77,7 @@ AWS Customer Review Analysis.ipynb
 
 ### 9. Query top 10 customers to review products and related average star rating
 
-**NOTE: You can see the JSON result on the console **
+**NOTE: You can see the JSON result on the console**
 
 <img src="images/14.png">
 
