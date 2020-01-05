@@ -12,7 +12,14 @@ analytics-pipeline, pub-sub, big-query, data-flow, tableau-dashboards
 Avaialable on https://registry.opendata.aws/amazon-reviews/
 
 ### Python Implementation:
-AWS Customer Review Analysis.ipynb
+**AWS Customer Review Analysis.ipynb**
+
+### Sample data:
+It is available in Data folder, you can complete dataset from the link mentioned above
+
+### Best practice:
+For querying and analytics is to load small data an build and test query against that. Once query and dashboards are ready then load the complete data to big-query or change the data source for production database and execute the queries. This will save time and money for the enterprise.**
+
 
 ## Data Analytics:
 
