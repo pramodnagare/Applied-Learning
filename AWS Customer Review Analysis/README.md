@@ -40,6 +40,8 @@ For querying and analytics is to load small data an build and test query against
 
 ### 4. Query your data for first 50 records just the quick look of the data
 
+**Note: Usage of * in SELECT query is not a good practice. The below query is for demo purpose.**
+
 <img src="images/2.png">
 
 **NOTE: Before execution of the query GCP will let you know what size of data it will process for the qiven query and it will bill against that. Also, GCP will cache that data for the future related queries to avoid long execution and related billing **
