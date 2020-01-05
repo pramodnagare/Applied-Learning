@@ -1,0 +1,7 @@
+{
+	"project_id": "aws-customer-review",
+	"project_name": "AWS-Customer-Review",
+	"dataset_name": "AWS_Product_Review",
+	"table_name": "Reviews"
+	
+}
