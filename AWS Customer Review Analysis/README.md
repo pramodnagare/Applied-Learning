@@ -87,10 +87,17 @@ AWS Customer Review Analysis.ipynb
 
 ** Let's perform some analytics on Amazon Customer Reviews with GCP Data Studio
 
-[Interactive Dashboard Avaiable here] (https://datastudio.google.com/embed/reporting/ac4f50d1-f071-4045-a23b-feafa9a80553/page/U6VAB)
+[Interactive Dashboard Avaiable here](https://datastudio.google.com/embed/reporting/ac4f50d1-f071-4045-a23b-feafa9a80553/page/U6VAB)
 
+**Overall Dashbaord**
 <img src="images/18.png">
 
+
+
+**Drilling and Filtering on JP Marketplace**
 <img src="images/19.png">
 
+
+
+**Drilling and Filtering on 2009 Year and Verified purchase**
 <img src="images/20.png">
