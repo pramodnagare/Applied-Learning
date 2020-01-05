@@ -107,4 +107,4 @@ For querying and analytics is to load small data an build and test query against
 **Drilling and Filtering on 2009 Year and Verified purchase**
 <img src="images/20.png">
 
-**NOTE: We can improve the query performance using the BI engine service provided by GCP for big query analytics which will be running the complete query execution in memory for high throughput. It is on demand and recommended for big data services 
+**NOTE: We can improve the query performance using the BI engine service provided by GCP for big query analytics which will be running the complete query execution in memory for high throughput. It is on demand and recommended for big data services**
